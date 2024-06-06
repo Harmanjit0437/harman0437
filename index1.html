@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discover Indian Restaurants</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        header {
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            color: #b10e1e;
+        }
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 1px solid #b10e1e;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+        .tab.active {
+            background-color: #b10e1e;
+            color: #fff;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .menu-section {
+            margin-bottom: 40px;
+        }
+        .menu-section h2 {
+            border-bottom: 2px solid #b10e1e;
+            padding-bottom: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+        li img {
+            margin-right: 10px;
+            border-radius: 5px;
+        }
+        .review-section {
+            margin-top: 40px;
+        }
+        .review-section h2 {
+            border-bottom: 2px solid #b10e1e;
+            padding-bottom: 5px;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .review-form textarea {
+            resize: vertical;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .review-form button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #b10e1e;
+            color: #fff;
+            cursor: pointer;
+        }
+        .reviews {
+            margin-top: 20px;
+        }
+        .review {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    contents[index].classList.add('active');
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Discover Indian Restaurants</h1>
+        <p>Embark on your culinary adventure now and discover the best Indian restaurants near you, indulging in new flavors, authentic reviews, and memorable dining experiences.</p>
+    </header>
+
+    <div class="tabs">
+        <div class="tab active">Traditional</div>
+        <div class="tab">Contemporary</div>
+        <div class="tab">Vegetarian</div>
+        <div class="tab">Non-Vegetarian</div>
+    </div>
+
+    <div class="content active">
+        <section class="menu-section">
+            <h2>Traditional Cuisine</h2>
+            <ul>
+                <li>
+                    <img src="https://plus.unsplash.com/premium_photo-1675280081139-5d644e8f4697?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2Ftb3NhfGVufDB8fDB8fHww" alt="Samosa" width="100" height="100">
+                    <div>
+                        <strong>Samosa</strong> - Samosa is a deep fried pastry with a spiced filling usually made with potatoes, spices and herbs. Sometimes these are also made with minced meat (keema). Samosa is one of the most commonly eaten snack across India. - $9.99
+                    </div>
+                </li>
+                <li>
+                    <img src="https://media.istockphoto.com/id/1355508124/photo/aloo-tikki-chole-chaat.webp?b=1&s=170667a&w=0&k=20&c=wSYWtORQ8VrKwtg4VARsrFpRgO7hFkEUtmXU_-Yce0w=" alt="Aloo Tikki" width="100" height="100">
+                    <div>
+                        <strong>Aloo Tikki</strong> - The dish is served hot along with a side of saunth, tamarind, and coriander-mint sauce, and sometimes dahi (yogurt) or chickpeas. - $9.99
+                    </div>
+                </li>
+                <li>
+                    <img src="https://media.istockphoto.com/id/185275414/photo/french-fries.webp?b=1&s=170667a&w=0&k=20&c=HG8SLs-D_UKa5Pm4UH6XYoYWnmvWQGy5bIW9P6gLQGk=" alt="French Fries" width="100" height="100">
+                    <div>
+                        <strong>French Fries</strong> - Side dish or snack typically made from deep-fried potatoes that have been cut into various shapes, especially thin strips. - $8.99
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="content">
+        <section class="menu-section">
+            <h2>Contemporary Cuisine</h2>
+            <ul>
+                <li>
+                    <img src="https://media.istockphoto.com/id/1314329942/photo/goal-gappa-or-pani-puri.webp?b=1&s=170667a&w=0&k=20&c=Acp0zPeG3yh7wumeFKvxIzmhX6dikJ5-P3OBH5p644E=" alt="Paani Puri" width="100" height="100">
+                    <div>
+                        <strong>Paani Puri</strong> - Gol gappa (also known as pani puri) is a popular bite-size chaat consisting of a hollow, crispy-fried puffed ball that is filled with potato, chickpeas, onions, spices, and flavoured water, usually tamarind or mint, and popped into one's mouth whole. - $7.99
+                    </div>
+                </li>
+                <li>
+                    <img src="https://media.istockphoto.com/id/1126075755/photo/image-of-traditional-indian-street-food-papri-chaat-chat-papri-in-new-delhi-india.webp?b=1&s=170667a&w=0&k=20&c=nkZuBLfyp744WbjIVqnvwHZxpVk5GMeUMHt7vmyy7-g=" alt="Chaat Papdi" width="100" height="100">
+                    <div>
+                        <strong>Chaat Papdi</strong> - Chaat is an umbrella term for a wide range of roadside foods that usually feature some kind of fried dough with various ingredients that typically create a spicy, tangy, or salty flavour, though some chaat are sweet. - $8.99
+                    </div>
+                </li>
+                <li>
+                    <img src="https://media.istockphoto.com/id/1500356630/photo/food-photos-various-entrees-appetizers-deserts-etc.webp?b=1&s=170667a&w=0&k=20&c=6BHwFylS-ANxks25SAdsrup69hqXAn6WkWge4LIt6Sg=" alt="Milk Badam" width="100" height="100">
+                    <div>
+                        <strong>Milk Bandam</strong> - Badam Milk is a traditional Indian drink made with almonds (or almond flour), cardamoms, saffron, whole milk and sugar. Almonds are ground to a smooth paste and simmered with full-fat milk & spices for a delicious, fragrant and protein-rich drink. - $4.99
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="content">
+        <section class="menu-section">
+            <h2>Vegetarian Cuisine</h2>
+            <ul>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1690915475414-9aaecfd3ba74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fGRhbGwlMjBtYWtobmklMjBpaW5kaWFuJTIwZGlzaHxlbnwwfHwwfHx8MA%3D%3D" alt="Dal Makhani" width="100" height="100">
+                    <div>
+                        <strong>Dal Makhni</strong> - Dal makhani (pronounced [daːl ˈmək.kʰə.ni]) is a dish originating in Punjab region. A relatively modern variation of traditional lentil dishes, it is made with urad dal (black lentils) and other pulses, and includes butter and cream (makhani is a Punjabi word for butter). - $11.99
+                    </div>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njd8fHNoYWhpJTIwcGFuZWVyaW5kaWFuJTIwZGlzaHxlbnwwfHwwfHx8MA%3D%3D" alt="Shahi Paneer" width="100" height="100">
+                    <div>
+                        <strong>Shahi Paneer</strong> - Shahi Paneer is a Mughlai dish where paneer is cooked in a creamy gravy made of onions, yogurt, nut and seeds. As the name suggests, Shahi Paneer literally means “Paneer for the Royalty”. So it is cooked with ingredients that impart a richness to the dish like yogurt, cream, nuts and seeds. - $12.99
+                    </div>
+                </li>
+                <li>
+                    <img src="https://images.unsplash.com/photo-1558722199-56eabc94fb69?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjMxfHxzYXJzb29uJTIwZGElMjBzYWFnJTIwaW5kaWFuJTIwZGlzaHxlbnwwfHwwfHx8MA%3D%3D" alt="Sarsoo Da Saag" width="100" height="100">
+                    <div>
+                        <strong>Sarsoo Da Saag</strong> - A traditional winter recipe from Punjab that uses mustard greens, spinach, goosefoot/bathua and fenugreek/methi to make a delicious and luscious dish. This farmer's food served with Makki di Roti is now synonymous with winter meals in Punjab. - $10.99
+                    </div>
+                </li>
+            </section>
+        </div>
+    
+        <div class="content">
+            <section class="menu-section">
+                <h2>Non-Vegetarian Cuisine</h2>
+                <ul>
+                    <img src="https://plus.unsplash.com/premium_photo-1670191894591-bc501a33de0d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q2hpY2tlbiUyMHRpa2thJTIwbWFzYWxhJTIwaW5kaWFuJTIwZGlzaHxlbnwwfHwwfHx8MA%3D%3D" alt="Chicken Tikka Masala" width="100" height="100">
+                    <li><strong>Chicken Tikka Masala</strong> - Chicken tikka masala is a dish consisting of roasted marinated chicken chunks (chicken tikka) in a spiced sauce. The sauce is usually creamy and orange-coloured. The dish was popularised by cooks from India living in Great Britain and is offered at restaurants around the world. - $13.99</li>
+                    <img src="https://images.unsplash.com/photo-1628294895950-9805252327bc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VGFuZG9vcmklMjBjaGlja2VuJTIwaW5kaWFuJTIwZGlzaHxlbnwwfHwwfHx8MA%3D%3D" alt="Tandoori Chicken" width="100" height="100">
+                    <li><strong>Tandoori Chicken</strong> - Tandoori chicken is a dish made from chicken marinated in yogurt and spices and roasted in a tandoor, a cylindrical clay oven. The dish is now popular worldwide. The modern form of the dish was popularized by the Moti Mahal restaurant in New Delhi, India in the late 1940s. - $14.99</li>
+                    <img src="https://plus.unsplash.com/premium_photo-1692835633672-50919fdffb75?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fFRhbmRvb3JpJTIwY2hpY2tlbiUyMGluZGlhbiUyMGRpc2h8ZW58MHx8MHx8fDA%3D" alt="Butter chicken" width="100" height="100">
+                    <li><strong>Butter chicken</strong> - Butter chicken, traditionally known as murgh makhani (pronounced [mʊrɣ ˈməkʰaːni]), is an Indian dish originating in Delhi. It is a type of curry made from chicken with a spiced tomato and butter (makhan) sauce. Its sauce is known for its rich texture. It is similar to chicken tikka masala, which uses a tomato paste. - $12.99</li>
+                </ul>
+            </section>
+        </div>
+    
+        <section class="review-section">
+            <h2>Customer Reviews</h2>
+            <form class="review-form">
+                <textarea rows="4" placeholder="Write your review here..."></textarea>
+                <button
