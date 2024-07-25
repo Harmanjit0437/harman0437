@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contemporary Cuisine</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    contents[index].classList.add('active');
+                });
+            });
+
+            const orderButtons = document.querySelectorAll('.order-button');
+
+            orderButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const li = e.target.closest('li');
+                    const timeSpan = li.querySelector('.timer');
+                    const time = parseInt(e.target.dataset.time);
+                    startTimer(time, timeSpan);
+                });
+            });
+
+            function startTimer(duration, display) {
+                let timer = duration, minutes, seconds;
+                const interval = setInterval(() => {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = `Time remaining: ${minutes}:${seconds}`;
+
+                    if (--timer < 0) {
+                        clearInterval(interval);
+                        display.textContent = "Order ready!";
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Contemporary Cuisine</h1>
+        <div class="nav">
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+        </div>
+    </header>
+
+    <section class="menu-section">
+        <h2>Contemporary Cuisine</h2>
+        <ul>
+            <li>
+                <img src="https://media.istockphoto.com/id/1314329942/photo/goal-gappa-or-pani-puri.webp?b=1&s=170667a&w=0&k=20&c=Acp0zPeG3yh7wumeFKvxIzmhX6dikJ5-P3OBH5p644E=" alt="Paani Puri" width="100" height="100">
+                <div>
+                    <strong>Paani Puri</strong> - Panipuri is a street snack that is extremely popular in India. This recipe is a North Indian style of making golgappa pani recipe along with the stuffing – specifically potatoes and white peas. - $7.99
+                </div>
+                <button class="order-button" data-time="1000">Order Now</button>
+                <span class="timer"></span>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>

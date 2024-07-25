@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traditional Cuisine</title>
+    <link rel="stylesheet" href="index.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+
+                    tab.classList.add('active');
+                    contents[index].classList.add('active');
+                });
+            });
+
+            const orderButtons = document.querySelectorAll('.order-button');
+
+            orderButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const li = e.target.closest('li');
+                    const timeSpan = li.querySelector('.timer');
+                    const time = parseInt(e.target.dataset.time);
+                    startTimer(time, timeSpan);
+                });
+            });
+
+            function startTimer(duration, display) {
+                let timer = duration, minutes, seconds;
+                const interval = setInterval(() => {
+                    minutes = parseInt(timer / 60, 10);
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = `Time remaining: ${minutes}:${seconds}`;
+
+                    if (--timer < 0) {
+                        clearInterval(interval);
+                        display.textContent = "Order ready!";
+                    }
+                }, 1000);
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Traditional Cuisine</h1>
+        <div class="nav">
+            <a href="register.php">Register</a>
+            <a href="login.php">Login</a>
+        </div>
+    </header>
+
+    <section class="menu-section">
+        <h2>Traditional Cuisine</h2>
+        <ul>
+            <li>
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fHNhbW9zYXxlbnwwfHwwfHx8MA%3D%3D" alt="Samosa" width="100" height="100">
+                <div>
+                    <strong>Samosa</strong> - Samosa is a deep fried pastry with a spiced filling usually made with potatoes, spices and herbs. Sometimes these are also made with minced meat (keema). Samosa is one of the most commonly eaten snack across India. - $9.99
+                </div>
+                <button class="order-button" data-time="1500">Order Now</button>
+                <span class="timer"></span>
+            </li>
+            <li>
+                <img src="https://media.istockphoto.com/id/1355508124/photo/aloo-tikki-chole-chaat.webp?b=1&s=170667a&w=0&k=20&c=wSYWtORQ8VrKwtg4VARsrFpRgO7hFkEUtmXU_-Yce0w=" alt="Aloo Tikki" width="100" height="100">
+                <div>
+                    <strong>Aloo Tikki</strong> - The dish is served hot along with a side of saunth, tamarind, and coriander-mint sauce, and sometimes dahi (yogurt) or chickpeas. - $9.99
+                </div>
+                <button class="order-button" data-time="2000">Order Now</button>
+                <span class="timer"></span>
+            </li>
+            <li>
+                <img src="https://media.istockphoto.com/id/185275414/photo/french-fries.webp?b=1&s=170667a&w=0&k=20&c=HG8SLs-D_UKa5Pm4UH6XYoYWnmvWQGy5bIW9P6gLQGk=" alt="French Fries" width="100" height="100">
+                <div>
+                    <strong>French Fries</strong> - Side dish or snack typically made from deep-fried potatoes that have been cut into various shapes, especially thin strips. - $8.99
+                </div>
+                <button class="order-button" data-time="1000">Order Now</button>
+                <span class="timer"></span>
+            </li>
+        </ul>
+    </section>
+</body>
+</html>
